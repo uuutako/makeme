@@ -3,12 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-         with_options format: { with: /\A[a-zA-Z0-9]+\z/ } do  #半角英数字のみ
-          validates :instagram 
-          validates :facebook
-          validates :twitter
-       end  
    
        with_options presence: true do
        validates :password, presence: true,  length: { minimum: 6 }
@@ -17,5 +11,5 @@ class User < ApplicationRecord
    
        validates :name, uniqueness: { case_sensitive: false }, length: { maximum: 10 }     
        end    
-     end
+    
 end
