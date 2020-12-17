@@ -1,2 +1,45 @@
 class Plan < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
+  with_options presence: true do
+    validates :title, length: { maximum: 40 }
+    validates :place
+    validates :category_id
+    validates :timezone_id
+    validates :season_id
+    validates :user_id
+  end
+
+  with_options length: { maximum: 1000 }, presence: true do
+    validates :concept
+    validates :item
+    validates :process
+  end
+
+
+  validates :cost, numericality: { greater_than: 0, less_than: 10000000 },
+  format: { with: /\A[0-9]+\z/ }
+
+  with_options format: { with: /\A[0-9]+\z/ }, presence: true do 
+    validates :hour
+    validates :minute
+  end
+
+   
+#Assosiation
+  belongs_to  :category
+  belongs_to  :timezone
+  belongs_to  :season
+  belongs_to  :user
+  has_one_attached :image
+  
+
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user.id).exists?
+  end
+
+  def was_attached?
+    self.image.attached?
+  end
+
 end
