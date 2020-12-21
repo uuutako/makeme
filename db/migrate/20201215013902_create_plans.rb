@@ -6,8 +6,7 @@ class CreatePlans < ActiveRecord::Migration[6.0]
       t.text        :item,                 null: false
       t.integer     :cost,                 null: false
       t.text        :process,              null: false
-      t.integer     :hour,                 null: false
-      t.integer     :minute,               null: false
+      t.integer     :time,                 null: false
       t.integer     :timezone_id,          null: false  
       t.integer     :category_id,          null: false  
       t.string      :place,                null: false 
