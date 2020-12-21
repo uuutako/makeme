@@ -25,8 +25,15 @@ class Plan < ApplicationRecord
   belongs_to  :user
   has_one_attached :image
 
+  has_many :bookmarks, dependent: :destroy
+  has_many :users, through: :bookmarks, source: :user
+
   def was_attached?
     self.image.attached?
+  end
+
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user.id).exists?
   end
 
 end

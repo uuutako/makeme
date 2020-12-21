@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   root'plans#index'  
   
-  resources :plans, only:[:new, :create]
+  resources :plans do
+    resource :bookmarks, only: [:create, :destroy]
+    collection do
+      get :bookmarks
+    end
+  end
  
   resources :users, only: [:new, :show, :edit, :update] 
 end
