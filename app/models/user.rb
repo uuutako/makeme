@@ -14,4 +14,5 @@ class User < ApplicationRecord
     validates_format_of :password, with: PASSWORD_REGEX
     validates :name, uniqueness: { case_sensitive: false }, length: { maximum: 10 }     
    end     
+
 end

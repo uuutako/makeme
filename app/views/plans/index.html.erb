@@ -3,6 +3,7 @@
     <%= "こんにちは" %><%= current_user.name%><%="さん"%>
      <li><%= "#{current_user.name}でログイン中" %></li>
      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+     <%= link_to "マイページ", user_path(current_user.id)%>
     <div><%= link_to "投稿する", new_plan_path %></div>
 <% else %>
      <p>ログインしていません</p>
