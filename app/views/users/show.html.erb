@@ -10,3 +10,10 @@
 <%= @user.name%>
 <%= @user.email%>
 </div>  
+<div>    
+ブックマークしている投稿
+<% @user.bookmark_plans.each do |plan| %>
+  <%= plan.title %>
+  <%= image_tag plan.image.variant(resize: '200x200') %>
+<% end %>
+</div>
