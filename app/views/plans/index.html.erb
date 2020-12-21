@@ -9,3 +9,14 @@
      <li><%= link_to 'ログイン', user_session_path %></li>
      <li><%= link_to '新規登録', new_user_registration_path %></li>
 <% end %>
+
+<h3>記事一覧</h3>
+<div>
+  <% @plans.each do |plan| %>
+    <%= link_to plans_path do %>
+      投稿者名<%= plan.user.name %>
+      タイトル<%= plan.title %>
+      カテゴリー<%= plan.category.name%>
+      <%= image_tag plan.image.variant(resize: '300x300') %>
+      <%end%> 
+  <%end%> 
