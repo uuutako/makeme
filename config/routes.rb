@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   
   resources :plans, only:[:new, :create]
  
-  resources :users, only: :new  
+  resources :users, only: [:new, :show, :edit, :update] 
 end

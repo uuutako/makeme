@@ -1,0 +1,12 @@
+<h3>マイページ</h3>
+ <%= link_to "登録情報を編集する", edit_user_registration_path %>
+ <div><%= link_to "投稿する", new_plan_path %></div>
+<div><%= link_to "TOP", root_path %></div>
+<% if @user.image.attached? %>
+  <%= image_tag @user.image.variant(resize: '200x200')%>
+<% else %>
+  <%= image_tag "m_sample.jpg", :size => '200x200' %>
+<%end%>
+<%= @user.name%>
+<%= @user.email%>
+</div>  
