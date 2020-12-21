@@ -7,7 +7,7 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
-    if @plan.save!
+    if @plan.save
       redirect_to root_path
     else
       render :new 
@@ -19,6 +19,6 @@ end
 private
   def plan_params
     params.require(:plan).permit(
-      :title,:concept,:item, :cost, :process,:time, :timezone_id, :place, :category_id ,
-      :season_id,:hour, :minute, :image ).merge(user_id: current_user.id)
+      :title,:concept,:item, :cost, :process, :time, :timezone_id, :place, :category_id ,
+      :season_id, :image ).merge(user_id: current_user.id)
   end
