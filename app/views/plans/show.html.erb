@@ -1,15 +1,28 @@
 <h1>投稿詳細ページ</h1>
+<div><%= link_to "TOPに戻る", root_path %></div>
+   <% if user_signed_in? %>
+     <% if current_user.id == @plan.user_id %>
    <%= link_to "編集する", edit_plan_path(@plan.id), method: :get  %>
    <%= link_to "削除する", plan_path(@plan.id), method: :delete %>
+   <%end%>
+<%end%>
 
-
+画像
 <%= image_tag @plan.image.variant(resize: '500x500')%>
+カテゴリー
 <%= @plan.category.name%>
+タイトル
 <%= @plan.title%>
+コンセプト
 <%= @plan.concept%>
+用意する物
 <%= @plan.item%>
+工程
 <%= @plan.process%>
+所用時間
 <%= @plan.time%>
+場所
 <%= @plan.place%>
+季節
 <%= @plan.season.name%>
-<%#= SNSのアカウント%>
+

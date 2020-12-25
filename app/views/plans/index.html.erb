@@ -14,10 +14,10 @@
 <h3>記事一覧</h3>
 <div>
   <% @plans.each do |plan| %>
-    <%= link_to plans_path do %>
-      投稿者名<%= plan.user.name %>
-      タイトル<%= plan.title %>
-      カテゴリー<%= plan.category.name%>
+    <%= link_to plan_path(plan) do %>
+      <%= plan.user.name %>
+      <%= plan.title %>
+      <%= plan.category.name%>
       <%= image_tag plan.image.variant(resize: '300x300') %>
       <%end%> 
       <% if user_signed_in? %>
