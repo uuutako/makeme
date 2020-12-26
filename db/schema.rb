@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_045412) do
     t.text "item", null: false
     t.integer "cost", null: false
     t.text "process", null: false
-    t.string "time", null: false
+    t.integer "selecttime_id", null: false
     t.integer "timezone_id", null: false
     t.integer "category_id", null: false
     t.string "place", null: false

@@ -16,7 +16,7 @@
       費用
       <span>¥</span> <%= f.text_field :cost, placeholder: "費用"%>
       所用時間
-      <%= f.time_field :time %>
+      <%= f.collection_select(:time_id, Time.all, :id, :name, {prompt: "時間帯を選択してください"}) %>
       場所
       <%= f.radio_button :place, "室内" %>屋内 <%= f.radio_button :place, "屋外" %>屋外
       時間帯
