@@ -4,6 +4,20 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.includes(:user).order('created_at DESC')
+
+    @q = Plan.ransack(params[:q])
+    @q_plans = @q.result(distinct: true)
+    
+    @selecttimes = Selecttime.all
+    @categories = Category.all
+    @seasons = Season.all
+    @timezones = Timezone.all
+    @places = Plan.all
+  end
+
+  def search
+    @q = Plan.search(search_params)
+    @plans = @q.result(distinct: true)
   end
 
   def new
@@ -39,15 +53,18 @@ class PlansController < ApplicationController
   end
 end
   
-  
-
 private
   def plan_params
     params.require(:plan).permit(
-      :title,:concept,:item, :cost, :process, :time, :timezone_id, :place, :category_id ,
+      :title,:concept,:item, :cost, :process, :selecttime_id, :timezone_id, :place, :category_id ,
       :season_id, :image ).merge(user_id: current_user.id)
   end
 
   def set_plan
     @plan = Plan.find(params[:id])
+  end
+
+  def search_params
+    params.require(:q).permit(:title_or_concept_or_item_cont, :selecttime_id_eq, :category_id_eq, 
+   :season_id_eq, :place_eq, :cost_gteq, :cost_lteq, :time_id_eq)
   end

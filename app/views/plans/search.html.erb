@@ -4,10 +4,11 @@
    <% @plans.each do |plan| %>
     <%= link_to plan_path(plan) do %>
      <!-- 投稿したユーザー名情報を出力する -->
-     <%= plan.user.nickname %>
+     <%= plan.user.name %>
      <!-- 投稿したメッセージ内容を記述する -->
      <%= plan.title %>
        <!-- 投稿したプランの詳細を出力する -->
+      <%= plan.cost %>
      <%= image_tag plan.image.variant(resize: '500x500') %>
     <%end%>
   <%end%>

@@ -12,6 +12,7 @@
 <% end %>
 
 <h3>記事一覧</h3>
+<%= render 'search_form' %>
 <div>
   <% @plans.each do |plan| %>
     <%= link_to plan_path(plan) do %>

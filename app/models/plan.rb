@@ -8,8 +8,8 @@ class Plan < ApplicationRecord
     validates :timezone_id
     validates :season_id
     validates :image
-    validates :time   
-    validates :cost, numericality: { greater_than: 0, less_than: 10000000 },format: { with: /\A[0-9]+\z/ }
+    validates :selecttime_id   
+    validates :cost, numericality: { greater_than: -1, less_than: 10000000 },format: { with: /\A[0-9]+\z/ }
   end
 
   with_options length: { maximum: 1000 }, presence: true do
@@ -19,6 +19,7 @@ class Plan < ApplicationRecord
   end
    
 #Assosiation
+  belongs_to  :selecttime
   belongs_to  :category
   belongs_to  :timezone
   belongs_to  :season
