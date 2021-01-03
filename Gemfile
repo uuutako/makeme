@@ -71,3 +71,5 @@ gem 'ransack'
 gem 'devise'
 
 gem 'font-awesome-rails'
+
+gem "aws-sdk-s3", require: false
