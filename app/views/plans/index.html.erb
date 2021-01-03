@@ -1,31 +1,54 @@
-<h1>トップページ</h1>
-<% if user_signed_in? %>
-    <%= "こんにちは" %><%= current_user.name%><%="さん"%>
-     <li><%= "#{current_user.name}でログイン中" %></li>
-     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-     <%= link_to "マイページ", user_path(current_user.id)%>
-    <div><%= link_to "投稿する", new_plan_path %></div>
-<% else %>
-     <p>ログインしていません</p>
-     <li><%= link_to 'ログイン', user_session_path %></li>
-     <li><%= link_to '新規登録', new_user_registration_path %></li>
-<% end %>
+<%= render "shared/header" %>
+<div class='main'>
 
-<h3>記事一覧</h3>
-<%= render 'search_form' %>
-<div>
-  <% @plans.each do |plan| %>
-    <%= link_to plan_path(plan) do %>
-      <%= plan.user.name %>
-      <%= plan.title %>
-      <%= plan.category.name%>
-      <%= image_tag plan.image.variant(resize: '300x300') %>
-      <%end%> 
-      <% if user_signed_in? %>
-        <% if plan.bookmarked_by?(current_user)%>
-          <%= button_to("解除", "/plans/#{plan.id}/bookmarks", method: :delete) %>
-        <% else %>
-          <%= button_to("登録", "/plans/#{plan.id}/bookmarks", method: :post) %>
-        <% end %>
-      <% end %>
-  <%end%> 
+  <%# 画面上部の「makeme~~~」帯部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      The most important thing is to enjoy your life – to be happy – 
+    </h2>
+    <p>
+    <div class='service-explain'>
+        人生の主役はわたし。ー悲劇も喜劇もぜんぶお手製ー<br>
+        物語のシナリオは自分の手で作っていけばいい。
+    </div>
+    </p>
+  </div>
+  
+  <div class = search_box>
+    <%= render 'search_form' %>
+  </div>
+  <div class ="plan-contents">
+    <ul class='plan-lists'>
+      <% @plans.each do |plan| %>
+        <li class='list'>
+          <%= link_to plan_path(plan) do %>
+          <div class='plan-img-content'>
+          <p><%= image_tag plan.image, class: "plan-img" %></p>
+          <p>作成者名：<%= plan.user.name %></p>          
+          <p>プラン名：<%= plan.title %></p>
+          <p>所要時間：<i class="fa fa-clock-o"></i><%= plan.selecttime.name%></p>
+          <p>費用：<%=  number_to_currency(plan.cost, unit: "円", strip_insignificant_zeros: true) %></p>
+          <p>カテゴリー：<%= plan.category.name%></p>            
+          <%end%> 
+          <p>
+          <% if user_signed_in? %>
+            <% if plan.bookmarked_by?(current_user)%>
+              <%= link_to plan_bookmarks_path(plan_id: plan.id), method: :delete do %>
+               <i class="fa fa-heart " style="color: red;" aria-hidden="true"></i>              
+              <%end%>
+            <% else %>
+              <%= link_to plan_bookmarks_path(plan_id: plan.id), method: :post do %>
+              <i class="fa fa-heart-o " style="color: red;"></i> 
+              <%end%>
+            <% end %>
+         <% end %>
+         </p>
+        <%end%> 
+        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+ </div>
+</div>
+<%= render "shared/footer" %>

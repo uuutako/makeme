@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+<div class= main-title>作成したプラン一覧</div>
+<div class ="plan-contents">
+  <ul class='plan-lists'>
+  <% @plans.each do |plan| %>
+  <li class='list'>
+   <%= link_to plan_path(plan) do %>    
+      <p><%= image_tag plan.image, class: "plan-img"  %></p> 
+      <p>プラン名：<%= plan.title %></p>
+      <p>作成者名：<%= plan.user.name %></p>          
+      <p>所要時間：<i class="fa fa-clock-o"></i><%= plan.selecttime.name%></p>
+      <p>費用：<%=  number_to_currency(plan.cost, unit: "円", strip_insignificant_zeros: true) %></p>
+      <p>カテゴリー：<%= plan.category.name%></p>
+    <%end%>
+  <%end%>
+    </li>
+  </ul>
+</div>
+
+<%= render "shared/footer" %>

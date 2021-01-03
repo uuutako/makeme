@@ -3,15 +3,11 @@ Rails.application.routes.draw do
 
   root'plans#index'  
   get 'plans/search'
+  get 'bookmarks/index'
 
   resources :plans do
-    resource :bookmarks, only: [:create, :destroy]
-    collection do
-      get :bookmarks
-    end
+    resource :bookmarks, only: [:index, :show,:create, :destroy]
   end
-
-
-
-  resources :users, only: [:new, :show, :edit, :update] 
+  
+  resources :users, only: [:index, :new, :show, :edit, :update] 
 end

@@ -1,0 +1,103 @@
+
+
+.title-contents {
+  width: 100vw;
+  height: 500px;
+  background-image: image-url('header.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.service-title {
+  font-size: 5vh;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+//プラン一覧
+
+.search_box{
+  padding: 20px 4%;
+  background-color:whitesmoke;
+}
+
+
+.search-form{
+  padding: 10px;
+}
+
+.plan-container {
+  width: 100%;
+}
+
+.plan-contents { 
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+ 
+}
+
+.plan-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  margin: 0 auto;
+}
+
+
+.list {
+  margin: 0 auto;
+  padding: 4%;
+  background-color: #FFF;
+}
+.plan-img-content {
+  position: relative;
+}
+
+.plan-img {
+  width: 40vh;
+  height: 30vh;
+}
+
+.input-box1{
+ margin-top: 3px;
+ padding-left: 10px;
+ width: 80vw
+}
+
+.input-box2{
+  margin-top: 3px;
+  padding-left: 10px;
+  width: 30vw
+}
+
+.search-btn{
+  margin-top: 3px;
+  padding: 2px;
+
+}
+
+.item-img-content {
+  position: relative;
+}
+
+.item-box-img {
+  height: 40vh;
+  width: 80vw;
+  object-fit: contain;
+  margin-bottom: 20px;
+}

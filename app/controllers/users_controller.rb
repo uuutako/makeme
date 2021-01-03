@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only:[:show, :edit]
+  before_action :authenticate_user!, only:[:index, :show, :edit]
   before_action :set_user, only: [:show, :edit, :update]
+
+  def index
+    @plans = current_user.plans
+  end
 
   def new
   end
@@ -12,7 +16,7 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def update!
+  def update
     if @user.update(user_params)
        redirect_to user_path
     else 
@@ -21,7 +25,6 @@ class UsersController < ApplicationController
   end  
 
 end
-
 
   private
 
