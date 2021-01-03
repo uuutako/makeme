@@ -1,14 +1,29 @@
+<div class = search-form>
 <%= search_form_for(@q, url: plans_search_path) do |f|%> 
-    <%= f.text_field :title_or_concept_or_item_cont, placeholder: "キーワードで検索する" %>
+   <div>
     <%= f.label :category_id_eq, "カテゴリー" %>
-    <%= f.collection_select :category_id_eq, @categories, :id, :name, :include_blank => '指定なし'%> 
+    <%= f.collection_select :category_id_eq, @categories, :id, :name, :include_blank => '指定なし',class: "input-box2"%> 
+    </div>
+    <div>
     <%= f.label :season_id_eq, "季節" %>
-    <%= f.collection_select :season_id_eq, @seasons, :id, :name, :include_blank => '指定なし' %>
-    <%= f.radio_button :place_eq, '', {:checked => true}%>指定しない
+    <%= f.collection_select :season_id_eq, @seasons, :id, :name, :include_blank => '指定なし' %>   
+    </div>
+    <div>
+    <%= f.label :selecttime_id_eq, "所要時間" %>
+    <%= f.collection_select :selecttime_id_eq, @selecttimes , :id, :name, :include_blank => '指定なし'%>  
+    </div>
+    <div>
+    <%= f.label :place_eq, "場所" %>
+    <%= f.radio_button :place_eq, '', {:checked => true}%>指定しない   
     <%= f.radio_button :place_eq, '屋内'%>屋内
-    <%= f.radio_button :place_eq, '屋外'%>屋外
-    <%= f.text_field :cost_gteq, placeholder: "¥ Min" %>
-    <%= f.text_field :cost_lteq, placeholder: "¥ Max" %>    
-     <%= f.collection_select :selecttime_id_eq, @selecttimes , :id, :name, :include_blank => '指定なし' %> 
-<%= f.submit "検索" %></div>
+    <%= f.radio_button :place_eq, '屋外'%>屋外<br>
+    </div>
+    <div>
+    費用
+    <%= f.text_field :cost_gteq, placeholder: "¥ Min", class: "input-box2"  %>〜
+    <%= f.text_field :cost_lteq, placeholder: "¥ Max", class: "input-box2" %>
+   </div>
+    <div><%= f.text_field :title_or_concept_or_item_cont, placeholder: "キーワードで検索する", class: "input-box1"  %></div>
+<%= f.submit "検索", class:"search-btn" %>
 <% end %> 
+</div>

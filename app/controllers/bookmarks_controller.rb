@@ -1,6 +1,12 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user = current_user
+    @bookmarks = Bookmark.where(user_id: @user.id).all
+  end
+
+
   def create
     @plan = Plan.find(params[:plan_id])
     bookmark = current_user.bookmarks.build(plan_id: params[:plan_id])

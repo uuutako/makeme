@@ -1,42 +1,61 @@
-<h1>新規投稿ぺージ</h1>
-    <%= form_with(model: @plan, local: true) do |f| %> 
-    <%= render 'shared/error_messages', model: f.object %>
-    <div><%= link_to "TOPに戻る", root_path %></div>
-      <div>
-      画像
-      <%= f.file_field :image %>
+<%= render "shared/header" %>
 
-      <%= f.label :title, "プランの名称" %><br />
-        <%= f.text_field :title, placeholder: "タイトル" %>
-
-      <%= f.label :title, "コンセプト" %><br />
-        <%= f.text_area  :concept, placeholder: "コンセプト" , rows: "10"%>
-
-      <%= f.label :title, "準備" %><br />
-        <%= f.text_field :item, placeholder: "準備する物" %>
-
-      <%= f.label :title, "やり方" %><br />
-        <%= f.text_area  :process, placeholder: "やり方", rows: "10" %>
-
-      <%= f.label :title, "費用" %><br />
-        <span>¥</span> <%= f.text_field :cost, placeholder: "費用"%>
-
-      <%= f.label :title, "所要時間" %><br />
-       <%= f.collection_select(:selecttime_id,Selecttime.all, :id, :name, {prompt:"所用時間を選択してください"}) %>
-      
-      <%= f.label :title, "場所" %><br />
-        <%= f.radio_button :place, "屋内" %>屋内 <%= f.radio_button :place, "屋外" %>屋外
-
-      <%= f.label :title, "時間帯" %><br />
-        <%= f.collection_select(:timezone_id, Timezone.all, :id, :name, {prompt: "時間帯を選択してください"}) %>
-      
-      <%= f.label :title, "季節" %><br />
-        <%= f.collection_select(:season_id, Season.all, :id, :name,{prompt: "季節を選択してください"}) %>
-      
-      <%= f.label :title, "カテゴリー" %><br />
-        <%= f.collection_select(:category_id, Category.all, :id, :name,{prompt: "カテゴリーを選択してください"}) %>
+<div class= new-main-contents>
+  <%= form_with(model: @plan, local: true) do |f| %> 
+  <%= render 'shared/error_messages', model: f.object %>
+    <div class="new-plans">      
+      <div class="weight-bold-text">
+        イメージ画像
       </div>
-      
-      <%= f.submit "投稿する" %>
-<% end %>
+      <div class="click-upload">
+      <%= f.file_field :image %>
+      </div>
+      <div class="weight-bold-text">
+        プラン名
+      </div>
+        <%= f.text_field :title, placeholder: "タイトル" %>
+      <div class="weight-bold-text">
+        コンセプト
+      </div>
+      <%= f.text_area  :concept, placeholder: "コンセプト" , rows: "７"%>
+      <div class="weight-bold-text">
+        用意するもの
+      </div>
+      <%= f.text_area :item, placeholder: "用意する物", rows: "７" %>
+      <div class="weight-bold-text">
+        手順
+      </div>
+        <%= f.text_area  :process, placeholder: "手順", rows: "７" %>
+      <div class="weight-bold-text">
+        カテゴリー
+      </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name,{prompt: "カテゴリーを選択してください"}) %>
+      <div class="weight-bold-text">
+        所要時間
+      </div>
+        <%= f.collection_select(:selecttime_id,Selecttime.all, :id, :name, {prompt:"所用時間を選択してください"}) %>
+      <div class="weight-bold-text">
+        費用
+      </div>
+        <span>¥</span> <%= f.text_field :cost, placeholder: "半角数字"%>
+      <div class="weight-bold-text">
+        場所
+      </div>
+        <span><%= f.radio_button :place, "屋内" %>屋内 <%= f.radio_button :place, "屋外" %>屋外</span>
+      <div class="weight-bold-text">
+        時間      
+      </div>
+        <%= f.collection_select(:timezone_id, Timezone.all, :id, :name, {prompt: "時間帯を選択してください"}) %>
+      <div class="weight-bold-text">
+        季節
+      </div>
+        <%= f.collection_select(:season_id, Season.all, :id, :name,{prompt: "季節を選択してください"}) %>
+      <br><br>
+    </div>
+    <div class="plan-actions">
+      <%= f.submit "投稿する", class: :form__btn %>
+    </div>
+  <% end %> 
+</div>
+<%= render "shared/footer" %>
 

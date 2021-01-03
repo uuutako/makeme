@@ -1,19 +1,19 @@
-<h3>マイページ</h3>
- <%= link_to "登録情報を編集する", edit_user_registration_path %>
- <div><%= link_to "投稿する", new_plan_path %></div>
-<div><%= link_to "TOP", root_path %></div>
-<% if @user.image.attached? %>
-  <%= image_tag @user.image.variant(resize: '200x200')%>
-<% else %>
-  <%= image_tag "m_sample.jpg", :size => '200x200' %>
-<%end%>
-<%= @user.name%>
-<%= @user.email%>
+<%= render "shared/header" %>
+
+<div class= "main" >
+  <div class = "show-contents">
+      <% if @user.image.attached? %>
+      <%= image_tag @user.image.variant(resize: '200x200')%>
+      <% else %>
+      <%= image_tag "m_sample.jpg", :size => '200x200' %>
+      <%end%>
+      <center><h3>ーマイページmenuー</h3></center>
+      <center><i class="fa fa-edit"></i> <%= link_to "アカウント情報を編集する", edit_user_registration_path %><br></center>
+      <center><i class="fa fa-bookmark"></i><%= link_to "ブックマーク一覧", bookmarks_index_path %><br></center>
+       <center><i class="fa fa-bookmark"></i><%= link_to "投稿したプラン一覧", users_path %><br></center>
+      <center><i class="fa fa-plus-square-o"></i><%= link_to "投稿する", new_plan_path %><br></center>
+    </div>
+  </div>
 </div>  
-<div>    
-ブックマークしている投稿
-<% @user.bookmark_plans.each do |plan| %>
-  <%= plan.title %>
-  <%= image_tag plan.image.variant(resize: '200x200') %>
-<% end %>
-</div>
+
+<%= render "shared/footer" %>
