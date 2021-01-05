@@ -2,7 +2,11 @@
 
 footer{
   width: 100%;
+<<<<<<< Updated upstream
   height: 40px;
+=======
+  padding: 10px;
+>>>>>>> Stashed changes
   background-color:gray;
   color: white;
   text-align: center;
