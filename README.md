@@ -1,28 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・アプリ名
+　Makeme
 
-Things you may want to cover:
+・概要
 
-* Ruby version
+　以下の機能を実装した「投稿アプリ」です。
+　ーーーーーーーーーー
+　アカウント登録
+　ログイン/ログアウト
+　プロフィール編集
+　投稿編集
+　投稿一覧
+　投稿検索
+　ブックマーク
+　ーーーーーーーーーー
+　
+・本番環境
+　Heroku
 
-* System dependencies
+・制作背景　
+　　お家時間が増えて「趣味がない、やりたいことが無い、、、」と呟く人が、
+　　ワクワクする事に出会えるきっかけをつくれればと思い開発しました。
 
-* Configuration
+　　様々なユーザーがプランを作り「何か」を提案することで、
+　　自分では思いもよらない「何か」と巡り会うことができる仕組みにしました。
 
-* Database creation
+　　閲覧者に行動を起こしてもらえるように、プランという形でやり方や費用がをまとめた情報にし、
+　　「これなら挑戦しやすそうだな、やってみようかな」と思ってもらえるよう心がけて制作しました。
+　　
 
-* Database initialization
+・工夫したポイント
+　○　ransackを用いて「カテゴリー、キーワード、時間、費用」など複数の要素で検索できるようにした。
+　○　deviceを用いてユーザー管理登録の実装し、セキュリティを設けて安全に登録できるようにした。
+　○　投稿情報・ブックマーク情報・アカウント情報のリンクを１ページでまとめて、編集削除できるページのリンクをまとめた。
+　○　AWSのS3を使用して投稿画像が消えないように外部ストレージを設けた。
+　○　Fontawaysomeを使って直感で機能がわかるようにした。
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+・使用技術(開発環境)
+  ruby on rails	
 
-* Deployment instructions
+・課題や今後実装したい機能	
+　SNS連携をして利用者同士のマッチング機能を実装したい。　	
 
-* ...
 
+・DB設計						
 ## users テーブル
 
 | Column               | Type       | Options        |
@@ -47,8 +70,7 @@ Things you may want to cover:
 | item                 | text        | null: false       |
 | cost                 | integer     | null: false       |
 | process              | text        | null: false       |
-| hour                 | integer     | null: false       |
-| minute               | integer     | null: false       |
+| selecttime           | integer     | null: false       |
 | timezone_id          | integer     | null: false       |
 | place                | string      | null: false       |
 | category_id          | integer     | null: false       |
