@@ -19,33 +19,34 @@
       <% @plans.each do |plan| %>
         <li class='list'>
           <%= link_to plan_path(plan) do %>
-          <div class='plan-img-content'>
-          <p><%= image_tag plan.image, class: "plan-img" %></p>
-          <p>作成者名：<%= plan.user.name %></p>          
-          <p>プラン名：<%= plan.title %></p>
-          <p>所要時間：<i class="fa fa-clock-o"></i><%= plan.selecttime.name%></p>
-          <p>費用：<%=  number_to_currency(plan.cost, unit: "円", strip_insignificant_zeros: true) %></p>
-          <p>カテゴリー：<%= plan.category.name%></p>            
+            <div class='plan-img-content'>
+            <p><%= image_tag plan.image, class: "plan-img" %></p>
           <%end%> 
-          <p>
-          <% if user_signed_in? %>
-            <% if plan.bookmarked_by?(current_user)%>
-              <%= link_to plan_bookmarks_path(plan_id: plan.id), method: :delete do %>
-               <i class="fa fa-heart " style="color: red;" aria-hidden="true"></i>              
-              <%end%>
-            <% else %>
-              <%= link_to plan_bookmarks_path(plan_id: plan.id), method: :post do %>
-              <i class="fa fa-heart-o " style="color: red;"></i> 
-              <%end%>
-            <% end %>
-         <% end %>
-         </p>
-        <%end%> 
-        </div>
-        </li>
-      </ul>
-    </div>
+             <div class="plan-sentence">
+               <p>作成者名：<%= plan.user.name %></p>          
+               <p class="b-break">プラン名：<%= plan.title %></p>
+               <p>所要時間：<i class="fa fa-clock-o"></i><%= plan.selecttime.name%></p>
+               <p>費用：<%=  number_to_currency(plan.cost, unit: "円", strip_insignificant_zeros: true) %></p>
+               <p>カテゴリー：<%= plan.category.name%></p> 
+             </div>
+            <p>           
+            <% if user_signed_in? %>
+              <% if plan.bookmarked_by?(current_user)%>
+                 <%= link_to plan_bookmarks_path(plan_id: plan.id), method: :delete do %>
+                 <i class="fa fa-heart " style="color: red;" aria-hidden="true"></i>              
+                 <%end%>
+              <% else %>
+                 <%= link_to plan_bookmarks_path(plan_id: plan.id), method: :post do %>
+                 <i class="fa fa-heart-o " style="color: red;"></i> 
+                 <%end%>
+              <% end %>
+            <% end %>  
+           </p>
+          </li>
+      <%end%> 
+    </ul>
   </div>
- </div>
+
 </div>
+
 <%= render "shared/footer" %>

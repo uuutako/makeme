@@ -22,8 +22,9 @@ ul {
   display: flex;
 }
 li {
-  margin: 0 0 0 15px;
   font-size: 14px;
+  word-break: break-all;
+  list-style: none;
 }
 
 .nav {
@@ -44,4 +45,14 @@ body {
 
 .input::placeholder {
   color:gray;
+}
+
+p.break{
+  word-break: break-all;
+}
+
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
 }

@@ -26,7 +26,7 @@
   line-height: 40px;
 }
 
-//プラン一覧
+//検索フォーム
 
 .search_box{
   padding: 20px 4%;
@@ -48,7 +48,11 @@
   flex-direction: column;
   align-items: center;
   padding: 10vh 0;
- 
+}
+
+.plan {
+  width: calc((100% - 50px) / 3);
+  margin-bottom: 40px;
 }
 
 .plan-lists {
@@ -59,20 +63,31 @@
   margin: 0 auto;
 }
 
-
 .list {
   margin: 0 auto;
   padding: 4%;
   background-color: #FFF;
 }
+
+.plan-sentence{
+  width: 40vh;
+}
+
 .plan-img-content {
   position: relative;
+}
+
+.p.b-break{
+  word-break: break-all;
 }
 
 .plan-img {
   width: 40vh;
   height: 30vh;
 }
+
+
+//詳細ページ
 
 .input-box1{
  margin-top: 3px;
@@ -102,4 +117,3 @@
   object-fit: contain;
   margin-bottom: 20px;
 }
-
