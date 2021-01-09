@@ -33,36 +33,31 @@
   background-color:whitesmoke;
 }
 
-
 .search-form{
   padding: 10px;
 }
 
-.plan-container {
-  width: 100%;
-}
+//プラン
 
-.plan-contents { 
-  background-color: #FFF;
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+ }
+
+ .plan-contents { 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10vh 0;
 }
 
-
 .plan-lists {
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
-  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.list {
-  padding: 20px;
-  background-color: #FFF;
-}
 
 .plan-sentence{
   width: 50vh;
@@ -70,6 +65,7 @@
 
 .plan-img-content {
   position: relative;
+  margin-bottom: 16px;
 }
 
 .p.b-break{

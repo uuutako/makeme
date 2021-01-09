@@ -14,6 +14,7 @@
   <div class = search_box>
     <%= render 'search_form' %>
   </div>
+  <div class="inner">
   <div class ="plan-contents">
     <ul class='plan-lists'>
       <% @plans.each do |plan| %>
@@ -46,7 +47,7 @@
       <%end%> 
     </ul>
   </div>
-
+</div>
 </div>
 
 <%= render "shared/footer" %>
