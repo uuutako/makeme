@@ -56,3 +56,28 @@ img {
   max-width: 100%;
   vertical-align: bottom;
 }
+
+ /* タブレット表示時 */
+ @media (max-width: 1024px) {
+
+  .list {
+    width: 48%;
+    margin-bottom: 40px;
+  }
+
+  .inner {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+ }
+
+ /* スマホ表示時 */
+@media (max-width: 599px) {
+
+  .list {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+
+ }
