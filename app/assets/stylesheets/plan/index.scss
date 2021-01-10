@@ -45,8 +45,6 @@
  }
 
  .plan-contents { 
-  display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 10vh 0;
 }
@@ -65,7 +63,7 @@
 
 .plan-img-content {
   position: relative;
-  margin-bottom: 16px;
+  margin: 0,auto
 }
 
 .p.b-break{
