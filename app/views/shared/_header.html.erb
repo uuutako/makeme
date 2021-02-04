@@ -1,9 +1,9 @@
 <header>
-  <h1>
-    <a href="/">Makeme</a>
-  </h1>
-  <div class='nav'>
-    <ul>
+  <div class="heading">
+  <h1><a href="/">Makeme</a></h1>
+  </div>
+  <div class='navbar'>
+    <ul class="nav-lists">
     <% if user_signed_in? %> 
         <li><%= "#{current_user.name}でログイン中" %></li>
         <li><%= link_to "投稿する", new_plan_path %></li>
