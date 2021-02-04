@@ -1,20 +1,20 @@
 <header>
-  <h1>
-    <a href="/">Makeme</a>
-  </h1>
-  <nav class ='pc-nav'>
-    <ul>
-    <% if user_signed_in? %> 
-        <li><%= "#{current_user.name}でログイン中" %></li>
-        <li><%= link_to "投稿する", new_plan_path %></li>
-        <li><%= link_to "マイページ", user_path(current_user.id)%></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to :back do %><button>戻る</button><% end %>
-    <% else %>
-        <li><%= link_to 'ログイン', user_session_path %></li>
-        <li><%= link_to '新規登録', new_user_registration_path %></li>
-    <% end %>      
+  <div class ='heder_flex'>
+    <h1><a href="/">Makeme</a></h1>
+    <div class='list_right'>
+      <ul>
+      <% if user_signed_in? %> 
+          <li><%= "#{current_user.name}でログイン中" %></li>
+          <li><%= link_to "投稿する", new_plan_path %></li>
+          <li><%= link_to "マイページ", user_path(current_user.id)%></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to :back do %><button>戻る</button><% end %>
+      <% else %>
+          <li><%= link_to 'ログイン', user_session_path %></li>
+          <li><%= link_to '新規登録', new_user_registration_path %></li>
+      <% end %>      
     </ul>
-  </nav>
+    </div>
+  </div>
 </header>
 
