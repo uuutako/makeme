@@ -1,0 +1,18 @@
+.not_find{
+  height: 20%;
+  font-size: 1.3vw;
+  color: rgb(15, 5, 2);
+  border: solid;
+  border-radius: 8px;
+  border-color: rgb(85, 84, 84);
+  background-color:#f0f0f0;
+  padding: 30px;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

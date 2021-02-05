@@ -1,6 +1,7 @@
-<h1>検索結果</h1>
+<%= render "shared/header" %>
 
  <div class ="container">
+ <% if @plans.present? %>
    <% @plans.each do |plan| %>
     <%= link_to plan_path(plan) do %>
      <!-- 投稿したユーザー名情報を出力する -->
@@ -11,5 +12,13 @@
       <%= plan.cost %>
      <%= image_tag plan.image.variant(resize: '500x500') %>
     <%end%>
+    <%end%>
+  <% else %>
+      <div class= 'not_find'>
+        <p>一致する商品がありません。条件を変えて検索してみよう！</p>
+      </div>
   <%end%>
-</div>
+</div><%= render "shared/footer" %>
+
+
+
